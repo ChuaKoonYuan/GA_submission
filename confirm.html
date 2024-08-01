@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Purchase - ActiveInsured</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        #details {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: white;
+        }
+        #details h1 {
+            margin-top: 0;
+        }
+        #confirmBtn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #confirmBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="details">
+        <h1>Confirm Purchase</h1>
+        <p>Plan Name: <span id="planName"></span></p>
+        <p>Description: <span id="description"></span></p>
+        <p>Price: <span id="price"></span></p>
+        <button id="confirmBtn">Confirm</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Retrieve URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const price = parseFloat(params.get('price'));
+            const planName = params.get('planName');
+            const description = params.get('description');
+            
+            // Check if parameters are valid
+            if (!price || !planName || !description) {
+                document.getElementById('details').innerHTML = '<p>Invalid parameters.</p>';
+                return;
+            }
+
+            // Display values
+            document.getElementById('price').textContent = `$${price}`;
+            document.getElementById('planName').textContent = planName;
+            document.getElementById('description').textContent = description;
+
+            // Confirm button click handler
+            document.getElementById('confirmBtn').onclick = function() {
+                // Retrieve and update localStorage
+                let purchasedPlans = JSON.parse(localStorage.getItem('purchasedPlans')) || [];
+                purchasedPlans.push({ planName: planName, description: description, price: price });
+                localStorage.setItem('purchasedPlans', JSON.stringify(purchasedPlans));
+
+                // Update wallet balance
+                let walletBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
+                walletBalance -= price;
+                localStorage.setItem('walletBalance', walletBalance.toFixed(2));
+
+                // Redirect to user.html after confirmation
+                window.location.href = 'user.html';
+            };
+        };
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

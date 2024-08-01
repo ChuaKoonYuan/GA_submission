@@ -1,0 +1,70 @@
+/* Change background color of dropdown menu */
+.dropdown-menu {
+    background-color: #080000; /* Change to your desired background color */
+}
+
+/* Change text color of dropdown menu items */
+.dropdown-menu .dropdown-item {
+    color: #010101; /* Change to your desired text color */
+}
+
+/* Change hover color of dropdown menu items */
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f7f7; /* Change to your desired hover color */
+}
+
+
+
+
+/* Navbar */
+.navbar {
+    background-color: #131313; /* Change the background color of the navbar */
+}
+
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffffff !important; /* Change the color of the navbar links */
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    color: #cccccc !important; /* Change the hover color of the navbar links */
+}
+
+/* Homepage */
+#homepage {
+    background-color: #f9f8fa; /* Change the background color of the homepage */
+    color: #333333; /* Change the text color of the homepage */
+    font-family: 'Arial', sans-serif; /* Change the font family of the homepage */
+}
+
+/* Product cards */
+.card {
+    background-color: #ffffff; /* Change the background color of the product cards */
+    border: 1px solid #dddddd; /* Change the border color of the product cards */
+}
+
+.card-title {
+    color: #111010; /* Change the color of the product titles */
+}
+
+.card-text {
+    color: #0a0a0a; /* Change the color of the product descriptions */
+}
+
+/* Contact section */
+#contact-us {
+    background-color: #3021d1; /* Change the background color of the contact section */
+    color: #fbf9f9; /* Change the text color of the contact section */
+    font-family: 'Arial', sans-serif; /* Change the font family of the contact section */
+}
+
+.social-media img {
+    width: 40px; /* Adjust the size of the social media icons */
+    margin-right: 10px; /* Adjust the spacing between the social media icons */
+}
+
+h1 {
+    margin:auto
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styleshome.css">
+    <title>Home - ActiveInsured</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-...your-integrity-hash-here..." crossorigin="anonymous">
+    <style>
+        .toggle-btn {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .toggle-btn.on {
+            background-color: green;
+        }
+
+        .insurance-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .insurance-card h4 {
+            margin-top: 0;
+        }
+
+        .insurance-card p {
+            margin-bottom: 10px;
+        }
+
+        .insurance-card .price {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        #plans,
+        #nearby-insurance {
+            display: none;
+        }
+
+        .heading-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .username {
+            color: white;
+            text-decoration: none;
+        }
+
+        .username:hover {
+            text-decoration: underline;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .insurance-card .image-container {
+            flex: 0 0 100px; /* Fixed width for the image container */
+            margin-right: 15px;
+        }
+
+        .insurance-card .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .insurance-card .content-container {
+            flex: 1; /* Take up remaining space */
+        }
+
+        .btn-buy {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-buy:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="Home.html">ActiveInsured</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="user.html">User Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="wallet.html">Wallet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="repurchase.html">Repurchase</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search for insurance plans..." onkeyup="filterPlans()">
+            </div>
+            <div class="heading-container">
+                <h2 id="mainHeading">Suggested Insurance Plans</h2>
+                <button class="toggle-btn" id="gpsToggleBtn" onclick="toggleGps()">GPS: Off</button>
+            </div>
+            <div id="plans">
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/tripcancel.jpg" alt="Trip Cancellation Insurance Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>Trip Cancellation Insurance</h4>
+                        <p>Coverage: Refunds non-refundable expenses if your trip is canceled</p>
+                        <div class="price">$150/year</div>
+                        <a class="btn-buy" href="confirm.html?price=150&planName=Trip%20Cancellation%20Insurance&description=Refunds%20non-refundable%20expenses%20if%20your%20trip%20is%20canceled">Buy</a>
+                    </div>
+                </div>
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/lossbaggage.jpeg" alt="Baggage Loss Insurance Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>Baggage Loss Insurance</h4>
+                        <p>Coverage: Compensation for lost or damaged baggage during your trip</p>
+                        <div class="price">$250/year</div>
+                        <a class="btn-buy" href="confirm.html?price=250&planName=Baggage%20Loss%20Insurance&description=Compensation%20for%20lost%20or%20damaged%20baggage%20during%20your%20trip">Buy</a>
+                    </div>
+                </div>
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/healthinsurance.jpeg" alt="Health Insurance Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>Health Insurance</h4>
+                        <p>Coverage: Comprehensive health coverage for medical expenses</p>
+                        <div class="price">$300/year</div>
+                        <a class="btn-buy" href="confirm.html?price=300&planName=Health%20Insurance&description=Comprehensive%20health%20coverage%20for%20medical%20expenses">Buy</a>
+                    </div>
+                </div>
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/insurance.jpeg" alt="Life Insurance Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>Life Insurance</h4>
+                        <p>Coverage: Provides financial support to beneficiaries in case of death</p>
+                        <div class="price">$400/year</div>
+                        <a class="btn-buy" href="confirm.html?price=400&planName=Life%20Insurance&description=Provides%20financial%20support%20to%20beneficiaries%20in%20case%20of%20death">Buy</a>
+                    </div>
+                </div>
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/travelinsurance.jpeg" alt="Travel Insurance Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>Travel Insurance</h4>
+                        <p>Coverage: Protection against travel-related issues such as trip interruption and emergency medical expenses</p>
+                        <div class="price">$180/year</div>
+                        <a class="btn-buy" href="confirm.html?price=180&planName=Travel%20Insurance&description=Protection%20against%20travel-related%20issues%20such%20as%20trip%20interruption%20and%20emergency%20medical%20expenses">Buy</a>
+                    </div>
+                </div>
+                <!-- Add more cards similarly -->
+            </div>
+            <div id="nearby-insurance">
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/atvinsurance.jpeg" alt="ATV Insurance Plan Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>ATV Insurance Plan</h4>
+                        <p>Coverage: Insurance for all-terrain vehicles to protect against damages and theft</p>
+                        <div class="price">$350/year</div>
+                        <a class="btn-buy" href="confirm.html?price=350&planName=ATV%20Insurance%20Plan&description=Insurance%20for%20all-terrain%20vehicles%20to%20protect%20against%20damages%20and%20theft">Buy</a>
+                    </div>
+                </div>
+                <div class="insurance-card">
+                    <div class="image-container">
+                        <img src="Pictures/skydiving.jpeg" alt="Skydiving Plan Image">
+                    </div>
+                    <div class="content-container">
+                        <h4>Skydiving Plan</h4>
+                        <p>Coverage: Insurance for skydiving activities to cover accidents and injuries</p>
+                        <div class="price">$450/year</div>
+                        <a class="btn-buy" href="confirm.html?price=450&planName=Skydiving%20Plan&description=Insurance%20for%20skydiving%20activities%20to%20cover%20accidents%20and%20injuries">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function initializePage() {
+            var button = document.getElementById('gpsToggleBtn');
+            var plansSection = document.getElementById('plans');
+            var nearbyInsuranceSection = document.getElementById('nearby-insurance');
+            var mainHeading = document.getElementById('mainHeading');
+
+            // Set initial state: GPS Off
+            button.classList.remove('on');
+            button.style.backgroundColor = 'red';
+            button.textContent = 'GPS: Off';
+            plansSection.style.display = 'block';
+            nearbyInsuranceSection.style.display = 'none';
+            mainHeading.textContent = 'Suggested Insurance Plans';
+        }
+
+        function toggleGps() {
+            var button = document.getElementById('gpsToggleBtn');
+            var plansSection = document.getElementById('plans');
+            var nearbyInsuranceSection = document.getElementById('nearby-insurance');
+            var mainHeading = document.getElementById('mainHeading');
+
+            if (button.classList.contains('on')) {
+                button.classList.remove('on');
+                button.style.backgroundColor = 'red';
+                button.textContent = 'GPS: Off';
+                plansSection.style.display = 'block';
+                nearbyInsuranceSection.style.display = 'none';
+                mainHeading.textContent = 'Suggested Insurance Plans';
+            } else {
+                button.classList.add('on');
+                button.style.backgroundColor = 'green';
+                button.textContent = 'GPS: On';
+                plansSection.style.display = 'none';
+                nearbyInsuranceSection.style.display = 'block';
+                mainHeading.textContent = 'Insurance Near You';
+            }
+
+            filterPlans(); // Apply filtering when GPS toggle changes
+        }
+
+        function filterPlans() {
+            var searchInput = document.getElementById('searchInput').value.toLowerCase();
+            var plansCards = document.querySelectorAll('#plans .insurance-card');
+            var nearbyCards = document.querySelectorAll('#nearby-insurance .insurance-card');
+
+            plansCards.forEach(card => {
+                var cardText = card.textContent.toLowerCase();
+                card.style.display = cardText.includes(searchInput) ? 'flex' : 'none';
+            });
+
+            nearbyCards.forEach(card => {
+                var cardText = card.textContent.toLowerCase();
+                card.style.display = cardText.includes(searchInput) ? 'flex' : 'none';
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+

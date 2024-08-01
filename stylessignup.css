@@ -1,0 +1,66 @@
+/* General styling for the signup section */
+.signup-section {
+    background: linear-gradient(to right, #00b4db, #0083b0); /* Gradient background */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 10px; /* Rounded corners */
+    border: none; /* Remove border */
+}
+
+.card-body {
+    padding: 2rem; /* Spacing inside the card */
+}
+
+.card-title {
+    margin-bottom: 1.5rem; /* Spacing below the title */
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px; /* Rounded corners for inputs */
+    box-shadow: none; /* Remove default shadow */
+    border-color: #ced4da; /* Light border color */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff; /* Match border with background */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    border-color: #004085; /* Darker border on hover */
+}
+
+a {
+    color: #007bff; /* Link color */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Style for the Back to Welcome link */
+.card-footer {
+    background-color: #f8f9fa; /* Light background for footer */
+    padding: 1rem; /* Padding inside footer */
+}
+
+.text-secondary {
+    color: #6c757d !important; /* Secondary text color */
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-link i {
+    margin-right: 8px; /* Spacing between arrow and text */
+}
